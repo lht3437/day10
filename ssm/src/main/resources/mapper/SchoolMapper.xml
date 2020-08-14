@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshu.dao.SchoolMapper">
+ 	<select id="findList" parameterType="schoolVo" resultType="schoolVo">
+ 	select s.*,a.areaname as aname from area a,school s 
+ 	<where>
+ 	s.areaid=a.id
+ 		<if test="schoolname!=null and schoolname!=''">
+ 			and s.schoolname like '%${schoolname}%'
+ 		
+ 		</if>
+ 		
+ 		
+ 	</where>
+ 	</select>
+</mapper>
